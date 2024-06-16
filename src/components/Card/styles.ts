@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface CardStyleProps {
   bg: string
+  blur: boolean
 }
 
 // A altura da imagem é 1/3 maior que a largura
@@ -48,6 +49,8 @@ export const CardStyle = styled.div<CardStyleProps>`
   overflow: hidden;
 
   scroll-snap-align: start;
+
+  ${(props) => !props.blur && 'filter: blur(0.4rem);'}
 
   &::after {
     border-radius: 18px;
