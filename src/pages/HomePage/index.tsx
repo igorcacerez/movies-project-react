@@ -4,49 +4,43 @@ import imagemBanner from '../../assets/imagem-banner.png'
 import { SectionMovies } from '../../components/ui/SectionMovies'
 import { Card } from '../../components/Card'
 import { TitleSection } from '../../components/TitleSection'
+import { useEffect, useState } from 'react'
+import { moviListRepository } from '../../repositories/MovieListRepository'
+import { MoviesListInterface } from '../../core/MoviesListInterface'
+import { getRandomNumber } from '../../utils/random'
 
 export function HomePage() {
+  const [movieList, setMovieList] = useState<MoviesListInterface[] | null>(null)
+
+  useEffect(() => {
+    const searchMovies = async () => {
+      const page = getRandomNumber(1, 13)
+      const { movies } = await moviListRepository({ type: 'top_rated', page })
+      setMovieList(movies)
+    }
+
+    searchMovies()
+  }, [])
+
   return (
     <LayoutDefault>
       <Banner
-        title="TV shows and more"
-        subtitle="Find Movies"
+        title="Próximo filme favorito"
+        subtitle="Encontre o seu"
         image={imagemBanner}
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ad
-        aperiam laboriosam, quae sapiente natus unde nostrum! Aliquid delectus,
-        laborum, ratione veniam impedit dolorum non veritatis animi ducimus,
-        unde consequatur.
+        Explore uma vasta coleção de filmes. Descubra os mais populares,
+        lançamentos recentes e títulos que estarão em breve. Encontre seu
+        próximo entretenimento com facilidade e aproveite ao máximo seu tempo
+        livre!
       </Banner>
 
       <TitleSection.Content>
-        <TitleSection.Title>Os Mais Assistidos</TitleSection.Title>
-        <TitleSection.Link to="/populares">Veja Mais</TitleSection.Link>
+        <TitleSection.Title>Aclamados pela crítica</TitleSection.Title>
       </TitleSection.Content>
 
       <SectionMovies>
-        {Array.from({ length: 4 }).map((_, index) => (
-          <Card
-            key={index}
-            movie={{
-              adult: false,
-              backdrop_path: '/k9X79JC2dDTcSpxuKJ3p2Teq3oZ.jpg',
-              genre_ids: [878, 28, 12],
-              id: 1025463,
-              original_language: 'pt',
-              original_title: 'Biônicos',
-              overview:
-                'When the progress of robotics makes Paralympic athletes the new sports stars, Maria dreams of competing against her sister. For that, she will have to enter a world of crime and violence.',
-              popularity: 486.389,
-              poster_path: '/xVCYzdBE6lo3sUFK1OMZnXvpGtT.jpg',
-              release_date: '2024-05-28',
-              title: 'Bionic',
-              video: false,
-              vote_average: 5.608,
-              vote_count: 74,
-            }}
-          />
-        ))}
+        {movieList?.map((item) => <Card key={item.id} movie={item} />)}
       </SectionMovies>
     </LayoutDefault>
   )

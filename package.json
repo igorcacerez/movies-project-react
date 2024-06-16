@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "node-vibrant": "^3.2.1-alpha.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.10.3",
+    "react-loading-skeleton": "^3.4.0",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.23.1",
     "react-simple-star-rating": "^5.1.7",
@@ -28,6 +30,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "http-proxy-middleware": "^3.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }

@@ -12,25 +12,19 @@ export const SectionStyle = styled.section`
   @media (max-width: 769px) {
     gap: 1.2rem;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding: 2rem 0;
-    margin: 0 0 0 2rem;
-    width: calc(100% - 2rem);
+    justify-content: initial;
+    padding: 2rem;
 
     overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scroll-snap-type: y mandatory;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
 
-    scroll-snap-type: x proximity;
+    /* scroll-snap-type: x proximity; */
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    &:last-of-type {
-      padding-right: 2rem;
     }
   }
 `

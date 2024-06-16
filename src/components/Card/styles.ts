@@ -3,6 +3,7 @@ import styled from 'styled-components'
 interface CardStyleProps {
   bg: string
   blur: boolean
+  loading: boolean
 }
 
 // A altura da imagem é 1/3 maior que a largura
@@ -47,8 +48,9 @@ export const CardStyle = styled.div<CardStyleProps>`
   border-radius: 18px;
   position: relative;
   overflow: hidden;
+  display: ${(props) => (props.loading ? 'none' : 'block')};
 
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 
   ${(props) => !props.blur && 'filter: blur(0.4rem);'}
 
@@ -78,13 +80,8 @@ export const CardStyle = styled.div<CardStyleProps>`
     }
   }
 
-  @media (max-width: 769px) {
+  @media (max-width: 321px) {
     width: 250px;
     height: ${getHeightCard(250) + 'px'};
-  }
-
-  @media (max-width: 320px) {
-    width: 210px;
-    height: ${getHeightCard(210) + 'px'};
   }
 `

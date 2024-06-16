@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
-export const TitleSectionStyle = styled.div`
+interface TitleSectionStyleProps {
+  numChildren: number
+}
+
+export const TitleSectionStyle = styled.div<TitleSectionStyleProps>`
   width: 100%;
   padding: 1rem 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${(props) =>
+    props.numChildren > 1 ? 'space-between' : 'center'};
   align-items: center;
   position: relative;
   margin: 5rem 0 2rem;
@@ -19,8 +24,12 @@ export const TitleSectionStyle = styled.div`
     z-index: -1;
   }
 
+  h4:first-child {
+    ${(props) => props.numChildren <= 1 && 'padding: 0 2rem !important;'};
+  }
+
   @media (max-width: 426px) {
-    margin: 2.5rem 0 1.8rem;
+    margin: 2.5rem 0 0;
   }
 `
 

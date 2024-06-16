@@ -13,8 +13,8 @@ export function Header() {
           <NavLink to={'/'} title="Home">
             Início
           </NavLink>
-          <NavLink to={'/populares'} title="Filmes Populares">
-            Populares
+          <NavLink to={'/disponivel-nos-cinemas'} title="Filmes Populares">
+            Nos Cinemas
           </NavLink>
           <NavLink to={'/em-breve'} title="Filmes que serão lançados em breve">
             Em Breve
