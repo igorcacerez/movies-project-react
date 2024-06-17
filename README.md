@@ -1,30 +1,71 @@
-# React + TypeScript + Vite
+### MOVIE AI - Projeto React e Vite 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto simples de um site de busca de filmes desenvolvido em React com Vite. Utiliza styled-components para estilização, skeleton para placeholders de carregamento e padrões de Clear Code para uma estrutura organizada e de fácil manutenção.
 
-Currently, two official plugins are available:
+#### Tecnologias Utilizadas:
+- React
+- Vite (para desenvolvimento rápido)
+- styled-components (para estilização)
+- skeleton (para carregamento de placeholders)
+- API do The Movie Database (TMDb) para busca de filmes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Funcionalidades:
+- Busca de filmes por título
+- Exibição de resultados de busca em uma lista
+- Detalhes de cada filme selecionado, incluindo título, sinopse, avaliação, etc.
 
-## Expanding the ESLint configuration
+#### Como Executar o Projeto:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Certifique-se de ter Node.js instalado na sua máquina.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+1. **Clone o repositório:**
+```bash
+git clone https://github.com/igorcacerez/movies-project-react.git
+cd movies-project-react
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Instale as dependências:**
+```bash
+npm install
+```
+
+3. **Configure a API do TMDb:**
+- Crie uma conta no [TMDb](https://www.themoviedb.org/) para obter uma API Key.
+- Crie um arquivo `.env` na raiz do projeto e adicione sua chave:
+  ```
+  TOKEN_TMDB=sua_api_key_aqui
+  ```
+
+4. **Execute o projeto:**
+```bash
+npm run dev
+```
+
+Isso iniciará o aplicativo em modo de desenvolvimento.
+Abra [http://localhost:3030](http://localhost:3030) para visualizá-lo no navegador.
+
+#### Estrutura do Projeto:
+
+- `/src`
+- `/@types`: Configuração do tipo do tema.
+- `/assets`: Imagens, tais como a logo.
+- `/components`: Componentes React reutilizáveis.
+- `/core`: Interface e Class que são utilizadas em diversos componentes.
+- `/layouts`: Layouts contendo varaveis para cores, fonts e espaçamentos.
+- `/navigation`: Configuração das rotas.
+- `/pages`: Componentes de página do aplicativo.
+- `/repositories`: Configuração e lógica para conexão com a API do TMDb.
+- `/styles`: Estilos globais e temas usando styled-components.
+- `/utils`: Funções utilitárias e helpers.
+- `App.js`: Componente principal do aplicativo.
+- `main.tsx`: Ponto de entrada do aplicativo.
+
+#### Privew do Projeto:
+
+O site esta publicado na Vercel, podendo ser acessado atráves do link: [https://movies-project-react-mu.vercel.app/](https://movies-project-react-mu.vercel.app/)
+
+
+
+#### Licença:
+
+Este projeto está licenciado sob a MIT License.
